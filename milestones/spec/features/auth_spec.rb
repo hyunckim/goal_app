@@ -14,6 +14,7 @@ feature "the signup process" do
       visit new_user_url
       fill_in 'username', with: 'Hyun'
       fill_in 'password', with: 'password123'
+      click_on 'Create User'
     end
     scenario "shows username on the homepage after signup" do
       expect(page).to have_content 'Hyun'
@@ -28,6 +29,7 @@ feature "logging in" do
     visit new_session_url
     fill_in 'username', with: 'Hyun'
     fill_in 'password', with: 'password123'
+    click_on 'Log In'
     expect(page).to have_content 'Hyun'
   end
 
@@ -36,7 +38,7 @@ end
 feature "logging out" do
 
   scenario "begins with a logged out state" do
-    visit root_url
+    visit new_session_url
     expect(page).to have_content "Log In"
   end
 
@@ -45,6 +47,7 @@ feature "logging out" do
     visit new_session_url
     fill_in 'username', with: 'Hyun'
     fill_in 'password', with: 'password123'
+    click_on('Log In')
     click_on('Log Out')
     expect(page).not_to have_content 'Hyun'
   end

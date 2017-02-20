@@ -1,6 +1,6 @@
-<h3>New user</h3>
+<h3>Log In</h3>
 
-<form class="" action="<%= users_url %>" method="post">
+<form class="" action="<%= session_url %>" method="post">
 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
 <label for="username">Username</label>
@@ -9,5 +9,5 @@
 <label for="password">Password</label>
 <input type="password" name="user[password]" id = "password">
 
-<input type="submit" value="Create User">
+<input type="submit" value="Log In">
 </form>
